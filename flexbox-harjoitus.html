@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <!-- koodisto -->
+    <meta charset="utf-8">
+	<!-- ie - edge yhteensopivuus -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- pikselien skaalaus -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flexbox harjoitus</title>
+	<!-- cycle slideshown tyylitiedostoon linkki -->
+	<link href="http://jquery.malsup.com/cycle2/demo/demo-slideshow.css" 
+	rel="stylesheet">
+	
+	<link href="css/lightbox.css" rel="stylesheet">
+	<style>
+	   .container {display:flex;
+	               flex-flow:row wrap;
+	               }
+				   
+		
+	   .box {width:250px;
+	         height:250px;
+			 background-color:red;
+			 border:2px solid black;
+			 margin:auto;
+			 }
+		.cycle-slideshow img{height:400px;
+							width:400px;}
+							
+		.galleria img {height:200px;
+						width:200px;
+						}
+		.galleria {text-align:center;}
+   
+   
+   </style>
+</head>
+<body>
+<div class="cycle-slideshow">
+
+<img src="images/Peru.jpg" alt="">
+<img src="images/Maisema1.jpg" alt="">
+<img src="images/jade1.jpg" alt="">
+<img src="images/cheesecake`s.jpg" alt="">
+</div>
+
+<div class="galleria">
+<a href="images/Peru.jpg" data-lightbox="roadstrip" title="Peru">
+		<img src="images/Peru.jpg" alt="">
+
+		
+<a href="images/Maisema1.jpg" data-lightbox="roadstrip" title="Maisema1">
+		<img src="images/Maisema1.jpg" alt="">
+		
+<a href="images/jade1.jpg" data-lightbox="roadstrip" title="jade1">
+		<img src="images/jade1.jpg" alt="">
+
+</div>
+
+
+
+<div class="container">
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</div>
+<!-- linkki jqueryn pääkirjastoon-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- linkki cyclen pluginiin -->
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+<!-- linkki lightboxin ja js-tiedostoon -->
+<script src="js/lightbox.js"</script>
+
+</body>
+</html>

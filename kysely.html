@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Oppimistehtävä 2</title>		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>    
+    
+    <form>
+    <div id="lomake">
+        
+    </div>
+    
+    </form>
+        <!-- jqueryn pääkirjasto -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+  
+        <script>
+        $.getJSON("", function( data ) {        
+        var items = [];  // alustetaan taulukko nimellä item        
+        $.each(data, function(key, d){
+        
+        })
+            
+        //tulostetaan taulukon tiedot sivulle 
+          $( "<div/>", {           // tehdään uusi ul-elementti
+          html: items.join( "" )  // yhdistetaan taulukon solut join:lla
+          }).appendTo( "#lomake" );  // lisätään ul-elementti taulukkotietoineen                           //bodyyn
+          });
+
+        </script>
+        
+	</body>
+</html>

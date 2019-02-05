@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>JSON-harjoitus</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		
+	</head>
+	<body>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    
+    <script>
+  $.getJSON("http://gis.vantaa.fi/rest/tyopaikat/v1/Terveydenhuolto", function( data ) {
+// tehdään taulukko			  
+var items = []; 
+$.each(data, function( key, d ) {
+// sijoitetaan säätiedot taulukkoon
+items.push( "<li>Työpaikka: " + d.tyotehtava + "<br>" );
+items.push( "Osoite : " + d.osoite + "</li>" );
+})
+    
+    
+//tulostetaan säätiedot sivulle			  
+$( "<ul/>", {
+	html: items.join( "" )
+	}).appendTo( "body" );
+});
+
+    </script>
+	</body>
+</html>

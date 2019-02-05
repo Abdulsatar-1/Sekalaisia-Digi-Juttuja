@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Oppimistehtävä 2</title>		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+	</head>
+	<body>
+        <h2>Chat</h2>
+        <form>
+        Nimi:<br>
+        <input type="text" id="nimi"><br>
+        Viesti:<br>
+        <textarea id="viesti"></textarea>
+        <br>
+        <button id="nappi" onClick="submitClick()">Lähetä</button>
+        </form>
+        <div id="viestiketju"></div>
+        <!-- jqueryn pääkirjasto -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+        
+<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDeqn194luw1CPoLlHL34GMgbMkmCewFzc",
+    authDomain: "oma-chatti-2018b.firebaseapp.com",
+    databaseURL: "https://oma-chatti-2018b.firebaseio.com",
+    projectId: "oma-chatti-2018b",
+    storageBucket: "oma-chatti-2018b.appspot.com",
+    messagingSenderId: "997880060452"
+  };
+  firebase.initializeApp(config);
+  // oma koodi
+  var firebaseRef = firebase.database();
+  var teksti = document.getElementById("viesti");
+  var lahettaja = document.getElementById("nimi");
+  
+  function submitClick(){
+      // tekstin tallennus
+      var firebaseRef = firebase.database().ref();
+      var viestiteksti = teksti.value;
+      var nimiteksti = lahettaja.value;
+      firebaseRef.child("viestit").push().set({
+          nimi:nimiteksti,
+          viesti:viestiteksti
+      }
+      );
+  }
+  // viestien lukeminen tietokannasta ja kirjoittaminen viestiketjuun
+  var rootRef = firebase.database().ref().child('viestit');
+  rootRef.on('child_added', snap =>
+
+  { var viesti = snap.child("viesti").val(); 
+    var nimi = snap.child("nimi").val(); 
+  $("#viestiketju").append("<p>" +nimi+ " : " +viesti + "</p>"); 
+
+});
+
+</script>    
+</body>
+</html>

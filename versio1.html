@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Projektitehtävä</title>		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>   
+        <!-- jqueryn pääkirjasto -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+  
+        <script>
+        $.getJSON("http://www.mocky.io/v2/5be3d4f52f00007300d9f15c", function( data ) {
+        
+        var items = [];  // alustetaan taulukko nimellä item     
+        $.each(data, function( key, d ) {
+        // lisätään push:lla taulukkoon li-elementti, jossa on json-tieto
+        items.push(  );  
+        })
+            
+        //tulostetaan taulukon tiedot sivulle 
+          $( "<div/>", {           // tehdään uusi div-elementti
+          html: items.join( "" )  // yhdistetaan taulukon solut join:lla
+          }).appendTo( "body" );  // lisätään div-elementti taulukkotietoineen                           //bodyyn
+          });
+    </script>
+        
+	</body>
+</html>
